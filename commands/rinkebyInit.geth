@@ -1,0 +1,1 @@
+geth --datadir=/home/yourself/Rinkeby/rinkeby init rinkeby.json

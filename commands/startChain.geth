@@ -1,0 +1,1 @@
+geth --port 3020 --networkid 58342 --nodiscover --datadir=../privchain --maxpeers=0 --targetgaslimit '9000000000000' --rpc --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain * --rpcapi eth,net,web3 --ipcapi eth,net,web3
