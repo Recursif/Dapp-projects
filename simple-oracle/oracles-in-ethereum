@@ -1,0 +1,64 @@
+
+# Oracles
+
+An oracle is, simply put, a "smart contract" that is able to interact
+with the outside world, in the world of Ethereum that is known as off-chain.
+
+ Example: Say you’re writing a smart contract that needs to retrieve weather data,
+ owever your contract can’t make arbitrary network requests on-chain.
+
+ You need something that trustable (all user input aren’t)
+ and is able to listen and respond to specific events on the blockchain.
+
+ The solution: Oracles.
+
+ ## Building Oracle
+
+ This guide will be building a simple Oracle that retrieves
+ bitcoin's total market cap from coinmarketcap and store it into the blockchain.
+
+
+ {
+    "total_market_cap_usd": 198558465250.0,  // This is that we want to store
+    "total_24h_volume_usd": 4974818568.0,
+    "bitcoin_percentage_of_market_cap": 61.65,
+    "active_currencies": 896,
+    "active_assets": 360,
+    "active_markets": 6442
+}
+
+edit truffles.js
+
+module.exports = {
+  // See <http://truffleframework.com/docs/advanced/configuration>
+  // to customize your Truffle configuration!
+  migrations_directory: "./migrations",
+  networks: {
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*", // Match any network id
+      gas: 4710000
+    }
+  }
+}
+
+
+This point truffle to our local private chain (testrpc).
+
+
+
+## Building and deploying our Oracle to testrpc
+
+
+Edit CMCOracle.sol and 2_deploy_contracts.js
+
+Run testrpc in a separate terminal, and then truffle compile && truffle migrate.
+
+This compiles our contracts and deploys them onto our private testnet.
+
+
+## Oracle and Client logic
+
+
+Edit ./oracle.js and ./client.js
