@@ -11,7 +11,7 @@ contract CMCOracle {
   // Callback function 
   event CallbackGetBTCCap();
   
-  function CMCOracle() public {
+  constructor() public {
     owner = msg.sender;
   }
   

@@ -62,3 +62,9 @@ This compiles our contracts and deploys them onto our private testnet.
 
 
 Edit ./oracle.js and ./client.js
+
+You’ll notice that there’s some code duplication between the two
+(particularly in getting the web3 instance),
+
+I chose not to abstract that common functionality because
+I intent to keep this guide as barebones as possible.
