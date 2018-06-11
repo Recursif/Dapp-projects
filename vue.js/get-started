@@ -1,0 +1,88 @@
+
+# What is vue.js?
+
+
+Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces.
+
+Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable.
+
+
+## Declarative Rendering 
+
+
+At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
+
+
+html:
+
+<div id="app">
+  {{ message }}
+</div>
+
+
+js:
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+
+html:
+<div id="app-2">
+  <span v-bind:title="message">
+    Hover your mouse over me for a few seconds
+    to see my dynamically bound title!
+  </span>
+</div>
+
+js:
+var app2 = new Vue({
+  el: '#app-2',
+  data: {
+    message: 'You loaded this page on ' + new Date().toLocaleString()
+  }
+})
+
+
+## Conditionals and Loops
+
+It’s easy to toggle the presence of an element, too:
+
+v-if="condition"
+
+<div id="app-3">
+  <span v-if="seen">Now you see me</span>
+</div>
+
+var app3 = new Vue({
+  el: '#app-3',
+  data: {
+    seen: true
+  }
+})
+
+
+This example demonstrates that we can bind data to not only text and attributes, but also the structure of the DOM
+
+v-for="todo in todos"
+
+<div id="app-4">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
+
+var app4 = new Vue({
+    el: '#app-4',
+    data: {
+        todos: [
+            { text: 'Learn JavaScript},
+            { text: 'Learn Vue' },
+            { text: 'Build something awesome' }
+        ]
+    }
+})
+
