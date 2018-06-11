@@ -86,5 +86,29 @@ var app4 = new Vue({
     }
 })
 
-In the con
+In the console, enter app4.todos.push({ text: 'New item' })
+You should see a new item appended to the list.
+
+
+## Handling User Input 
+
+To let users interact with your app, we can use the 
+v-on directive to attach event listeners that invoke methods on our Vue instances:
+
+<div id="app-5">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+var app5 = new Vue({
+  el: '#app-5',
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
 
