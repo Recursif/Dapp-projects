@@ -112,3 +112,90 @@ var app5 = new Vue({
   }
 })
 
+
+Note that in this method we update the state of our app without touching the DOM
+all DOM manipulations are handled by Vue, and the code you write is focused on the underlying logic.
+
+Vue also provides the v-model directive that makes two-way binding 
+between form input and app state breeze:
+
+<div id="app-6">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
+
+var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+
+
+## Composing with Components 
+
+The component system is another important concept in Vue,
+because it's an abstraction that allows us to build large-scale 
+applications composed of small, self-contained, and often reusable components.
+
+If we think about it, almost any type of application interface can 
+be abstracted into a tree of components:
+
+In vue, a component is essentially a Vue instance with 
+pre-defined options.
+
+Registering a component in Vue is Straightforward:
+
+// Define a new component called todo-item 
+Vue.component('todo-item', {
+  template: '<li>This is a todo</li>'
+})
+
+<ol>
+  <!-- Create an instance of the todo-item component -->
+  <todo-item></todo-item>
+</ol>
+
+But this would render the same text for every todo,
+which is not super interesting.
+
+We should be able to pass data from the parent scope into 
+child components.
+
+Let's modify the component definition to make it accept a prop:
+
+
+Now we can pass the todo into each repeated component using v-bind:
+
+
+<div id="app-7">
+  <ol>
+    <!--
+      Now we provide each todo-item with the todo object
+      it's representing, so that its content can be dynamic.
+      We also need to provide each component with a "key",
+      which will be explained later.
+    -->
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id">
+    </todo-item>
+  </ol>
+</div>
+
+Vue.component(''todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+
+var app7 = new Vue({
+  el: '#app-7'
+  data: {
+    groceryList: [
+      { id: 0, text: 'Vegetables' },
+      { id: 1, text: 'Cheese' },
+      { id: 2, text: 'Whatever else humans are supposed to eat' }
+    ]
+  }
+})
