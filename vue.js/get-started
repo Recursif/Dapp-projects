@@ -199,3 +199,39 @@ var app7 = new Vue({
     ]
   }
 })
+
+This is a contrived example, but we have managed to separate our app 
+into two smaller units, and the child is reasonably well-decoupled from 
+the parent via the props interface.
+
+We can now further improve our <to-item>
+component with more complex template and logic 
+without affecting the parent app.
+
+In large application, it is necessary to divide the whole 
+app into components to make development manageable.
+
+<div id="app">
+  <app-nav></app-nav>
+  <app-view>
+    <app-sidebar></app-sidebar>
+    <app-content></app-content>
+  </app-view>
+</div>
+
+## Relation to Custom Elements 
+
+You may have noticed that Vue compoents are very similar 
+to Custom Elements, which are part of the Web Components Spec.
+
+That’s because Vue’s component syntax is loosely modeled after the spec.
+For example, Vue components implement the Slot API and the is special attribute.
+However, there are a few key differences:
+
+The Web Components Spec is still in draft status, and is not natively implemented in every browser.
+In comparison, Vue components don’t require any polyfills and work consistently in all supported browsers (IE9 and above).
+
+Vue components provide important features that are not available in plain custom elements, 
+most notably cross-component data flow, custom event communication and build tool integrations.
+
+
