@@ -1,0 +1,46 @@
+
+struct Test {
+    uint a;
+    uint b;
+}
+
+uint = uint256
+
+uint8 uint16 uint32 uint256 
+
+keccak256()
+
+msg.sender 
+
+msg.value 
+
+this.balance 
+
+
+mapping (address => uint) 
+
+uint[] result = new uint[](countNumber[msg.sender]);
+
+uint counter
+for (uint i = 0; i < array.length; i++) {
+    if (arrayToOwner[i] == msg.sender) {
+        result[counter] = i;
+        counter++;
+    }
+
+}
+
+
+struct Test {
+    uint a;
+    uint b;
+    uint c;
+}
+
+consume more gas than 
+
+struct Test {
+    uint a;
+    uint32 b;
+    uint32 c;
+}
